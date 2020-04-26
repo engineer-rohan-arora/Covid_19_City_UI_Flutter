@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   fancy_bottom_navigation: ^0.3.2
   flutter_svg: ^0.17.4
+  flutter_phone_state: ^0.5.9
 
 
 dev_dependencies:

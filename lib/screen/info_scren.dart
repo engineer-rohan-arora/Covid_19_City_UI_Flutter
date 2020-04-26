@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_state/flutter_phone_state.dart';
+
 class Info extends StatefulWidget {
   static const String id = 'info_screen';
   @override
@@ -27,14 +29,10 @@ class _Info extends State<Info> {
             title: const Text('Services'),
             actions: <Widget>[
               // action button
-              IconButton(
-                icon: Icon(Icons.local_pharmacy),
-                onPressed: () {
-                },
-              ),
+
               IconButton(
                   icon: Icon(Icons.local_phone),
-                  onPressed: () { print("Pressed"); }
+                  onPressed: () => FlutterPhoneState.startPhoneCall('+919999999999'),
               ),
               IconButton(
                 icon: Icon(Icons.info),

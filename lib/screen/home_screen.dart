@@ -4,6 +4,7 @@ import 'widget/my_header.dart';
 import 'package:saharanpurcovidapp/constant.dart';
 import 'widget/counter.dart';
 import 'package:saharanpurcovidapp/screen/info_scren.dart';
+import 'package:flutter_phone_state/flutter_phone_state.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -49,14 +50,8 @@ class _HomeScreen extends State<HomeScreen> {
           actions: <Widget>[
             // action button
             IconButton(
-              icon: Icon(Icons.local_pharmacy),
-              onPressed: () {},
-            ),
-            IconButton(
                 icon: Icon(Icons.local_phone),
-                onPressed: () {
-                  print("Pressed");
-                }
+                onPressed: () => FlutterPhoneState.startPhoneCall('+919999999999'),
             ),
             IconButton(
               icon: Icon(Icons.info),

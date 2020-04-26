@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:saharanpurcovidapp/screen/info_scren.dart';
+import 'package:flutter_phone_state/flutter_phone_state.dart';
+
 class Services extends StatefulWidget {
   static const String id = 'service_screen';
   @override
@@ -25,13 +27,8 @@ class _Services extends State<Services> {
             actions: <Widget>[
               // action button
               IconButton(
-                icon: Icon(Icons.local_pharmacy),
-                onPressed: () {
-                },
-              ),
-              IconButton(
-                  icon: Icon(Icons.local_phone),
-                  onPressed: () { print("Pressed"); }
+                icon: Icon(Icons.local_phone),
+                onPressed: () => FlutterPhoneState.startPhoneCall('+919999999999'),
               ),
               IconButton(
                 icon: Icon(Icons.info),
