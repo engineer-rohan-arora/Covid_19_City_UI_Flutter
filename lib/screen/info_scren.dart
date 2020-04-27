@@ -169,8 +169,14 @@ class _Info extends State<Info> {
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 16.0),
                             child: RaisedButton(
+                              color: Colors.blueAccent,
                               onPressed: () {},
-                              child: Text('Submit')
+                              child: Text('Submit',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                              ),
+                              ),
                             ),
                           ),
 
@@ -180,8 +186,22 @@ class _Info extends State<Info> {
                   ),
                 ),
               ),
-              Center(
-                  child: Text('Saharanpur News'))
+              SingleChildScrollView(
+                controller: controller,
+                child:Column(
+                  children: <Widget>[
+                    SizedBox(height: 15,),
+                    DevCard(title: 'Rohan Arora', text: 'Quantum University',college: 'Full Stack Developer',),
+                    //SizedBox(height: 2.5,),
+                    DevCard(title: 'Garv Arora', text: 'St. Mary\'s Academy',college: 'Graphics Designer',),
+                    //SizedBox(height: 2.5,),
+                    DevCard(title: 'Shivank Tyagi', text: 'Quantum University',college: 'Web Developer',),
+                    //SizedBox(height: 2.5,),
+                    DevCard(title: 'Shreya Sharma', text: 'Quantum University',college: 'UI/UX Developer',),
+
+                  ],
+                ),
+              )
             ],
           ),
         ),
@@ -307,6 +327,94 @@ class SymptomCard extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class DevCard extends StatelessWidget {
+  final String title;
+  final String college;
+  final String text;
+  const DevCard({
+    Key key,
+    this.title,
+    this.text,
+    this.college,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 10),
+      child: SizedBox(
+        height: 140,
+        child: Stack(
+          //alignment: Alignment.centerLeft,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical:8,horizontal: 32),
+              child: Container(
+                height: 125,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0, 8),
+                      blurRadius: 24,
+                      color: kShadowColor,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                height: 125,
+
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Center(
+                      child: Text(
+                        title,
+                        style: kTitleTextstyle.copyWith(
+                          fontSize: 26,
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          college,
+                          style: TextStyle(
+                            fontSize: 22,
+
+                          ),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: Text(
+                          text,
+                          style: TextStyle(
+                            fontSize: 22,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
