@@ -192,11 +192,11 @@ class _Info extends State<Info> {
                   children: <Widget>[
                     SizedBox(height: 15,),
                     DevCard(title: 'Rohan Arora', text: 'Quantum University',college: 'Full Stack Developer',),
-                    //SizedBox(height: 2.5,),
-                    DevCard(title: 'Garv Arora', text: 'St. Mary\'s Academy',college: 'Graphics Designer',),
-                    //SizedBox(height: 2.5,),
+
                     DevCard(title: 'Shivank Tyagi', text: 'Quantum University',college: 'Web Developer',),
-                    //SizedBox(height: 2.5,),
+
+                    DevCard(title: 'Garv Arora', text: 'St. Mary\'s Academy',college: 'Graphics Designer',),
+
                     DevCard(title: 'Shreya Sharma', text: 'Quantum University',college: 'UI/UX Developer',),
 
                   ],
