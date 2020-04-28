@@ -46,7 +46,7 @@ class _ReportMass extends State<ReportMass> {
               onPressed:() => Navigator.pop(context, false),
 
             ),
-            title: const Text('Volunteer Registeration'),
+            title: const Text('Report Mass Gathering'),
             actions: <Widget>[
               // action button
 
@@ -83,19 +83,21 @@ class _ReportMass extends State<ReportMass> {
                         ),
                       ),
                       SizedBox(height: 20),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Enter your Email-id'
-                        ),
-                      ),
-                      SizedBox(height: 20),
+
                       TextFormField(
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Enter Your Contact Number'
                         ),
                       ),
+                      SizedBox(height: 20),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Enter The Location/ Address'
+                        ),
+                      ),
+
                       SizedBox(height: 40),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 16.0),

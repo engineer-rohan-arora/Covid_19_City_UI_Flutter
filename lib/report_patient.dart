@@ -46,7 +46,7 @@ class _ReportPatient extends State<ReportPatient> {
               onPressed:() => Navigator.pop(context, false),
 
             ),
-            title: const Text('Volunteer Registeration'),
+            title: const Text('Report A Patient'),
             actions: <Widget>[
               // action button
 
@@ -82,18 +82,26 @@ class _ReportPatient extends State<ReportPatient> {
                             labelText: 'Enter your Name'
                         ),
                       ),
+
                       SizedBox(height: 20),
                       TextFormField(
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Enter your Email-id'
+                            labelText: 'Enter Your Contact Number'
                         ),
                       ),
                       SizedBox(height: 20),
                       TextFormField(
                         decoration: InputDecoration(
                             border: OutlineInputBorder(),
-                            labelText: 'Enter Your Contact Number'
+                            labelText: 'Enter The Name Of Patient'
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Enter the Address'
                         ),
                       ),
                       SizedBox(height: 40),

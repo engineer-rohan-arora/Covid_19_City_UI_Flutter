@@ -193,12 +193,6 @@ class _Info extends State<Info> {
                     SizedBox(height: 15,),
                     DevCard(title: 'Rohan Arora', text: 'Quantum University',college: 'Full Stack Developer',),
 
-                    DevCard(title: 'Shivank Tyagi', text: 'Quantum University',college: 'Web Developer',),
-
-                    DevCard(title: 'Garv Arora', text: 'St. Mary\'s Academy',college: 'Graphics Designer',),
-
-                    DevCard(title: 'Shreya Sharma', text: 'Quantum University',college: 'UI/UX Developer',),
-
                   ],
                 ),
               )

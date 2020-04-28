@@ -46,7 +46,7 @@ class _HotSpot extends State<HotSpot> {
               onPressed:() => Navigator.pop(context, false),
 
             ),
-            title: const Text('Volunteer Registeration'),
+            title: const Text('Hotspot List'),
             actions: <Widget>[
               // action button
 
@@ -68,59 +68,85 @@ class _HotSpot extends State<HotSpot> {
           ),
           body: SingleChildScrollView(
             controller: controller,
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(36.0),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Enter your Name'
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Enter your Email-id'
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      TextFormField(
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Enter Your Contact Number'
-                        ),
-                      ),
-                      SizedBox(height: 40),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 16.0),
-                        child: RaisedButton(
-                          color: Colors.blueAccent,
-                          onPressed: () {},
-                          child: Text('Submit',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                            ),
-                          ),
-                        ),
-                      ),
+            child:Column(
+              children: <Widget>[
+                SizedBox(height: 15,),
+                HotspotList(title: "Name of Hotspot", patients: "5",),
+                SizedBox(height: 15,),
+                HotspotList(title: "Name of Hotspot", patients: "5",),
+                SizedBox(height: 15,),
+                HotspotList(title: "Name of Hotspot", patients: "5",),
+                SizedBox(height: 15,),
+                HotspotList(title: "Name of Hotspot", patients: "5",),
+                SizedBox(height: 15,),
+                HotspotList(title: "Name of Hotspot", patients: "5",),
+                SizedBox(height: 15,),
+                HotspotList(title: "Name of Hotspot", patients: "5",),
+                SizedBox(height: 15,),
+                HotspotList(title: "Name of Hotspot", patients: "5",),
 
-                    ],
-                  ),
-                ),
-              ),
+              ],
             ),
-          ),
+          )
           ),
 
         ),
 
+    );
+  }
+}
+class HotspotList extends StatelessWidget {
+
+  HotspotList({this.title,this.patients});
+
+  final String title;
+  final String patients;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+
+          Material(
+            borderRadius: BorderRadius.only(
+              topLeft:Radius.circular(30),
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+            elevation: 5.0,
+            color: Colors.white  ,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+
+              child: Column(
+                children: <Widget>[
+                  Text(title,
+                    style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold
+                    ),),
+
+                  SizedBox(height: 15,),
+
+                  Text('No. of Infected People : $patients', style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),),
+
+
+                ],
+              ),
+              //,
+            ),
+          ),
+
+        ],
+      ),
     );
   }
 }
