@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:saharanpurcovidapp/help.dart';
+import 'package:saharanpurcovidapp/hotspot_list.dart';
 import 'package:saharanpurcovidapp/screen/info_scren.dart';
-import 'package:flutter_phone_state/flutter_phone_state.dart';
+import 'package:saharanpurcovidapp/report_mass.dart';
+import 'package:saharanpurcovidapp/report_patient.dart';
+import 'package:saharanpurcovidapp/volunteer_regen.dart';
+import 'package:saharanpurcovidapp/donation.dart';
+import 'package:saharanpurcovidapp/screen/contact.dart';
 class Services extends StatefulWidget {
   static const String id = 'service_screen';
   @override
@@ -43,7 +49,7 @@ class _Services extends State<Services> {
             bottom: TabBar(
               tabs: [
                 Tab(child: Center(child: Text('Food Distribution')),),
-                Tab(child: Center(child: Text('Volunteer Registeration')),),
+                Tab(child: Center(child: Text('Food Drop')),),
                 Tab(child: Center(child: Text('Saharnpur News')),),
               ],
             ),
@@ -52,7 +58,7 @@ class _Services extends State<Services> {
               // action button
               IconButton(
                 icon: Icon(Icons.local_phone),
-                onPressed: () => FlutterPhoneState.startPhoneCall('+919999999999'),
+                onPressed: () {Navigator.pushNamed(context, Contact.id);},
               ),
               IconButton(
                 icon: Icon(Icons.info),
@@ -79,53 +85,64 @@ class _Services extends State<Services> {
               ),
               SingleChildScrollView(
                 controller: controller,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(36.0),
-                    child: Center(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter your Name'
+
+                          Material(
+                            borderRadius: BorderRadius.only(
+                              topLeft:Radius.circular(30),
+                              bottomLeft: Radius.circular(30),
+                              bottomRight: Radius.circular(30),
+                              topRight: Radius.circular(30),
                             ),
-                          ),
-                          SizedBox(height: 20),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter your Email-id'
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter Your Contact Number'
-                            ),
-                          ),
-                          SizedBox(height: 40),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            child: RaisedButton(
-                              color: Colors.blueAccent,
-                              onPressed: () {},
-                              child: Text('Submit',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                ),
+                            elevation: 5.0,
+                            color: Colors.white  ,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+
+                              child: Column(
+                                children: <Widget>[
+                                  Text('Food Drop',
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold
+                                    ),),
+
+                                  SizedBox(height: 15,),
+
+                                  Text('Here you will get the list of places colleting food to be donated. If '
+                                      'You want you can donate food, groceries or medicene here', style: TextStyle(
+                                    fontSize: 18,
+                                    color: Colors.black,
+                                  ),),
+
+
+                                ],
                               ),
+                              //,
                             ),
                           ),
 
                         ],
                       ),
                     ),
-                  ),
+                    Column(
+                      children: <Widget>[
+                        Food(title:'Food Drop 1', text: 'Address', time: '10:15',),
+                        Food(title:'Food Drop 2', text: 'Address', time: '1:15'),
+                        Food(title:'Food Drop 3', text: 'Address', time: '5:15'),
+                        Food(title:'Food Drop 4', text: 'Address', time: '10:45'),
+                        Food(title:'Food Drop 5', text: 'Address', time: '1:00')
+                        ],
+                    ),
+
+                  ],
                 ),
               ),
               SingleChildScrollView(
@@ -146,6 +163,86 @@ class _Services extends State<Services> {
                 ),
               )
             ],
+          ),
+          drawer: Drawer(
+            // Add a ListView to the drawer. This ensures the user can scroll
+            // through the options in the drawer if there isn't enough vertical
+            // space to fit everything.
+            child: ListView(
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  child: Column(
+                    children: <Widget>[
+                      Text('SAHARANPUR',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text('Covid-19 Help',
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                  ),
+                ),
+                ListTile(
+                  title: Text('Report Mass Gathering'),
+                  onTap: () {
+                    Navigator.pushNamed(context, ReportMass.id);
+                  },
+                ),
+                ListTile(
+                  title: Text('Report A Patient'),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    Navigator.pushNamed(context, ReportPatient.id);
+                  },
+                ),
+                ListTile(
+                  title: Text('Volunteer Registeration'),
+                  onTap: () {Navigator.pushNamed(context, Volunteer.id);},
+                ),
+                ListTile(
+                  title: Text('Donation'),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    Navigator.pushNamed(context, Donation.id);
+                  },
+                ),
+                ListTile(
+                  title: Text('Hotspot List'),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    Navigator.pushNamed(context, HotSpot.id);
+                  },
+                ),
+                ListTile(
+                  title: Text('Help'),
+                  onTap: () {
+                    // Update the state of the app
+                    // ...
+                    // Then close the drawer
+                    Navigator.pushNamed(context, Help.id);
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -228,6 +325,67 @@ class FoodDistribution extends StatelessWidget {
   }
 }
 
+class Food extends StatelessWidget {
+
+  Food({this.title,this.text,this.time});
+
+  final String title;
+  final String text;
+  final String time;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+
+          Material(
+            borderRadius: BorderRadius.only(
+              topLeft:Radius.circular(30),
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+            elevation: 5.0,
+            color: Colors.white  ,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+
+              child: Column(
+                children: <Widget>[
+                  Text(title,
+                    style: TextStyle(
+                        fontSize: 22,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold
+                    ),),
+
+                  SizedBox(height: 15,),
+                  Text('Time: $time', style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),),
+                  SizedBox(height: 15,),
+
+                  Text(text, style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),),
+
+
+                ],
+              ),
+              //,
+            ),
+          ),
+
+        ],
+      ),
+    );
+  }
+}
 
 class News extends StatelessWidget {
 

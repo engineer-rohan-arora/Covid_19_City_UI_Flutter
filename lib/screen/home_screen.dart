@@ -3,7 +3,13 @@ import 'widget/my_header.dart';
 import 'package:saharanpurcovidapp/constant.dart';
 import 'widget/counter.dart';
 import 'package:saharanpurcovidapp/screen/info_scren.dart';
-import 'package:flutter_phone_state/flutter_phone_state.dart';
+import 'contact.dart';
+import 'package:saharanpurcovidapp/report_patient.dart';
+import 'package:saharanpurcovidapp/hotspot_list.dart';
+import 'package:saharanpurcovidapp/help.dart';
+import 'package:saharanpurcovidapp/donation.dart';
+import 'package:saharanpurcovidapp/report_mass.dart';
+import 'package:saharanpurcovidapp/volunteer_regen.dart';
 
 
 class HomeScreen extends StatefulWidget {
@@ -49,8 +55,10 @@ class _HomeScreen extends State<HomeScreen> {
           actions: <Widget>[
             // action button
             IconButton(
-                icon: Icon(Icons.local_phone),
-                onPressed: () => FlutterPhoneState.startPhoneCall('+919999999999'),
+              icon: Icon(Icons.local_phone),
+              onPressed: () {
+                Navigator.pushNamed(context, Contact.id);
+              },
             ),
             IconButton(
               icon: Icon(Icons.info),
@@ -136,6 +144,86 @@ class _HomeScreen extends State<HomeScreen> {
                   ],
                 ),
               )
+            ],
+          ),
+        ),
+        drawer: Drawer(
+          // Add a ListView to the drawer. This ensures the user can scroll
+          // through the options in the drawer if there isn't enough vertical
+          // space to fit everything.
+          child: ListView(
+            // Important: Remove any padding from the ListView.
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              DrawerHeader(
+                child: Column(
+                  children: <Widget>[
+                    Text('SAHARANPUR',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text('Covid-19 Help',
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                ),
+              ),
+              ListTile(
+                title: Text('Report Mass Gathering'),
+                onTap: () {
+                  Navigator.pushNamed(context, ReportMass.id);
+                },
+              ),
+              ListTile(
+                title: Text('Report A Patient'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pushNamed(context, ReportPatient.id);
+                },
+              ),
+              ListTile(
+                title: Text('Volunteer Registeration'),
+                onTap: () {Navigator.pushNamed(context, Volunteer.id);},
+              ),
+              ListTile(
+                title: Text('Donation'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pushNamed(context, Donation.id);
+                },
+              ),
+              ListTile(
+                title: Text('Hotspot List'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pushNamed(context, HotSpot.id);
+                },
+              ),
+              ListTile(
+                title: Text('Help'),
+                onTap: () {
+                  // Update the state of the app
+                  // ...
+                  // Then close the drawer
+                  Navigator.pushNamed(context, Help.id);
+                },
+              ),
             ],
           ),
         ),

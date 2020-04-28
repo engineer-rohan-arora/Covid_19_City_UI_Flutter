@@ -204,6 +204,7 @@ class _Info extends State<Info> {
               )
             ],
           ),
+
         ),
       ),
     );
