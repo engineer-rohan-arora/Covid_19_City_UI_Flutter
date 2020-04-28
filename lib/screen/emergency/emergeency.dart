@@ -48,8 +48,8 @@ class _Emergency extends State<Emergency> {
           appBar: AppBar(
             bottom: TabBar(
               tabs: [
-                Tab(child: Center(child: Text('Report A Patient')),),
-                Tab(child: Center(child: Text('Help')),),
+                Tab(child: Center(child: Text('Doctor on Call')),),
+                Tab(child: Center(child: Text('Contact an NGO')),),
                 Tab(child: Center(child: Text('Contact')),),
               ],
             ),
@@ -72,117 +72,12 @@ class _Emergency extends State<Emergency> {
           ),
           body: TabBarView(
             children: [
-              SingleChildScrollView(
-                controller: controller,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(36.0),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter your Name'
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter your Email-id'
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter Your Contact Number'
-                            ),
-                          ),
-                          SizedBox(height: 40),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            child: RaisedButton(
-                              color: Colors.blueAccent,
-                              onPressed: () {},
-                              child: Text('Submit',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                ),
-                              ),
-                            ),
-                          ),
-
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              SingleChildScrollView(
-                controller: controller,
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(36.0),
-                    child: Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter your Name'
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter your Contact Number'
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter Your Address'
-                            ),
-                          ),
-                          SizedBox(height: 10),
-                          TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(),
-                                labelText: 'Enter The Problem Faced'
-                            ),
-                          ),
-                          SizedBox(height: 40),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 16.0),
-                            child: RaisedButton(
-                              color: Colors.blueAccent,
-                              onPressed: () {},
-                              child: Text('Submit',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 22,
-                                ),
-                              ),
-                            ),
-                          ),
-
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
               Center(
-                  child: Text('Contact'))
+                  child: Text('Contact')),
+              Center(
+                  child: Text('Contact')),
+              Center(
+                  child: Text('Contact')),
             ],
           ),
           drawer: Drawer(
